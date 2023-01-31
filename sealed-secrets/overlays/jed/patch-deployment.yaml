@@ -5,8 +5,9 @@ metadata:
   namespace: kube-system
 spec:
   template:
-    tolerations:
-    - key: "type"
-      operator: Equal
-      value: manager
-      effect: NoSchedule
+    spec:
+      tolerations:
+      - key: "type"
+        operator: Equal
+        value: manager
+        effect: NoSchedule
