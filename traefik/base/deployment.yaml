@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik-ingress
+  namespace: traefik
+  labels:
+    app: traefik
+    app.kubernetes.io/name: traefik 
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: traefik
+  template:
+    metadata:
+      labels:
+        app: traefik
+        app.kubernetes.io/name: traefik 
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      containers:
+        - name: traefik
+          image: traefik:v2.9
+          args:
+            - --configfile=/var/traefik/traefik-config.yaml
+          ports:
+            - name: web
+              containerPort: 80
+            - name: dashboard
+              containerPort: 8080
+            - name: websecure
+              containerPort: 443
+          securityContext:
+            capabilities:
+              add:
+              - NET_BIND_SERVICE
+              drop:
+              - ALL
+          volumeMounts:
+          - name: config
+            mountPath: /var/traefik
+      volumes:
+      - name: config
+        configMap:
+          name: traefik-config

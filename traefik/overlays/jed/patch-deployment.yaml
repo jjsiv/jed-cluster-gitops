@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik-ingress
+  namespace: traefik
+spec:
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      nodeName: rpi-master
+      hostNetwork: true
+      tolerations:
+      - key: "type"
+        operator: Equal
+        value: manager
+        effect: NoSchedule
+      containers:
+        - name: traefik
+          ports:
+            - name: web
+              containerPort: 80
+            - name: dashboard
+              containerPort: 8080
+            - name: websecure
+              containerPort: 443

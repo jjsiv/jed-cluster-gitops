@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base/
+- traefik-dashboard-ingressroute-http.yaml
+- traefik-dashboard-ingressroute-https.yaml
+- traefik-middleware-redirect.yaml
+
+namespace: traefik
+
+images:
+- name: traefik
+  newTag: v2.9
+  newName: traefik
+
+patchesStrategicMerge:
+  - patch-deployment.yaml
+
+configMapGenerator:
+- name: traefik-config
+  namespace: traefik
+  files:
+  - traefik-config.yaml
+  options:
+    annotations:
+      argocd.argoproj.io/sync-options: Prune=true
+
