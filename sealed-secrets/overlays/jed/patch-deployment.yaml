@@ -7,7 +7,5 @@ spec:
   template:
     spec:
       tolerations:
-      - key: "type"
-        operator: Equal
-        value: manager
+      - operator: Equal
         effect: NoSchedule
