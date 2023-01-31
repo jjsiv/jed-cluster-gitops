@@ -11,7 +11,7 @@ spec:
       nodeName: rpi-master
       hostNetwork: true
       tolerations:
-      - operator: Equal
+      - operator: Exists
         effect: NoSchedule
       containers:
         - name: traefik
