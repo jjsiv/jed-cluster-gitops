@@ -26,7 +26,6 @@ spec:
       - args: []
         command:
         - controller
-        env: []
         image: docker.io/bitnami/sealed-secrets-controller:v0.19.3
         imagePullPolicy: IfNotPresent
         livenessProbe:

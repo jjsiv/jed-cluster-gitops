@@ -8,7 +8,7 @@ namespace: kube-system
 
 images:
 - name: docker.io/bitnami/sealed-secrets-controller
-  newTag: :v0.19.3
+  newTag: v0.19.3
 
 patchesStrategicMerge:
   - patch-deployment.yaml
