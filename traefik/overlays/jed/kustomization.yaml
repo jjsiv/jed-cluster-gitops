@@ -6,6 +6,7 @@ resources:
 - traefik-dashboard-ingressroute-http.yaml
 - traefik-dashboard-ingressroute-https.yaml
 - traefik-middleware-redirect.yaml
+- secret-traefik-ingress.yaml
 
 namespace: traefik
 
