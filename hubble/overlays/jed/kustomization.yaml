@@ -4,6 +4,5 @@ kind: Kustomization
 resources:
 - ../../bases
 
-
-
+namespace: kube-system
 

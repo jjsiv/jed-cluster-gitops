@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../bases
+
+namespace: logging
+
+patchesStrategicMerge:
+- patch-clusterrole.yaml
+- patch-fluent-bit.yaml
+#- patch-fluentd.yaml
+
+images:
+- name: kubesphere/fluent-operator
+  newTag: v2.0.0
+  newName: kubesphere/fluent-operator
+
+- name: kubesphere/fluent-bit
+  newTag: v2.0.8
+  newName: kubesphere/fluent-bit
+
+#- name: kubesphere/fluentd
+#  newTag: v1.14.6-arm64
+#  newName: kubesphere/fluentd
+
+
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+- name: fluent-lua-scripts
+  files:
+  - scripts/containerd.lua
+  options:
+    labels:
+      fluentbit.fluent.io/enabled: "true"
