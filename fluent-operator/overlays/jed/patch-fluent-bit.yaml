@@ -4,6 +4,8 @@ metadata:
   name: fluent-bit
   namespace: logging
 spec:
+  labels:
+    app.kubernetes.io/name: fluent-bit
   tolerations:
   - effect: NoSchedule
     operator: Exists
