@@ -25,8 +25,6 @@ kind: FluentBit
 metadata:
   name: fluent-bit
   namespace: logging
-  labels:
-    app.kubernetes.io/name: fluent-bit
 spec:
   image: kubesphere/fluent-bit:v1.9.9
   fluentBitConfigName: fluent-bit-config
