@@ -6,10 +6,6 @@ metadata:
 spec:
   template:
     spec:
-      nodeName: rpi-master
-      tolerations:
-      - operator: Exists
-        effect: NoSchedule
       containers:
       - name: jenkins
         resources:
