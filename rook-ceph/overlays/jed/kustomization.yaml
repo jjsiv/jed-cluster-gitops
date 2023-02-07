@@ -3,7 +3,9 @@ kind: Kustomization
 
 resources:
 - ../../bases
+- ceph-config.yaml
 
+namespace: rook-ceph
 
 
 

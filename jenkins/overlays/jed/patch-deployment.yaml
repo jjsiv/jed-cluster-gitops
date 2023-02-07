@@ -25,4 +25,4 @@ spec:
       volumes:
       - name: jenkins-home
         persistentVolumeClaim:
-          claimName: jenkins-hostpath-pvc
+          claimName: jenkins-master-pvc
