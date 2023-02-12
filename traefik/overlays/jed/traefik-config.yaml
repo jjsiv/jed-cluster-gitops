@@ -12,6 +12,8 @@ providers:
 api:
   dashboard: true
   insecure: false
+ping:
+  entryPoint: ping
 log:
   level: debug
   filePath: /dev/stdout
@@ -26,5 +28,5 @@ entryPoints:
       insecure: true
   websecure:
     address: ":443"
-  dashboard:
-    address: ":8600"
+  ping:
+    address: ":9999"
