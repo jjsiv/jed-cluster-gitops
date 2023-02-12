@@ -27,11 +27,6 @@ serversTransport:
 entryPoints:
   web:
     address: ":80"
-    redirections:
-      entryPoint:
-        to: websecure
-        scheme: https
-        permanent: true
   websecure:
     address: ":443"
   ping:
