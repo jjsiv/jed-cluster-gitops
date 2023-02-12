@@ -30,4 +30,4 @@ spec:
       - name: cacerts
         secret:
           defaultMode: 420
-          name: traefik-cacerts
+          secretName: traefik-cacerts
