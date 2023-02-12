@@ -29,4 +29,4 @@ entryPoints:
   websecure:
     address: ":443"
   ping:
-    address: ":9999"
+    address: ":8081"

@@ -18,6 +18,9 @@ images:
 patchesStrategicMerge:
   - patch-daemonset.yaml
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 configMapGenerator:
 - name: traefik-config
   namespace: traefik
