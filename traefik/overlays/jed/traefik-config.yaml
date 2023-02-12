@@ -22,6 +22,7 @@ accessLog:
   filePath: /dev/stdout
   format: json
 serversTransport:
+  insecureSkipVerify: false
   rootCAs:
   - /var/traefik/certs/jed-ca.crt
 entryPoints:
