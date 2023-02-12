@@ -16,7 +16,7 @@ images:
   newName: traefik
 
 patchesStrategicMerge:
-  - patch-deployment.yaml
+  - patch-daemonset.yaml
 
 configMapGenerator:
 - name: traefik-config

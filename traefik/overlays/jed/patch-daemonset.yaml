@@ -1,15 +1,13 @@
-kind: Deployment
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: traefik-ingress
   namespace: traefik
 spec:
-  strategy:
-    type: Recreate
   template:
     spec:
-      nodeName: rpi-master
-      hostNetwork: false
+      nodeSelector:
+        app.kubernetes.io/name: traefik
       tolerations:
       - operator: Exists
         effect: NoSchedule

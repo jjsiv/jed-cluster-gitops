@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
 - crds.yaml
-- deployment.yaml
+#- deployment.yaml
+- daemonset.yaml
 - ingressclass.yaml
 - service.yaml
 - rbac.yaml
