@@ -15,17 +15,23 @@ api:
 ping:
   entryPoint: ping
 log:
-  level: debug
+  level: info
   filePath: /dev/stdout
   format: json
 accessLog:
   filePath: /dev/stdout
   format: json
+serversTransport:
+  rootCAs:
+  - traefik-cacerts
 entryPoints:
   web:
     address: ":80"
-    forwardedHeaders:
-      insecure: true
+    redirections:
+      entryPoint:
+        to: websecure
+        scheme: https
+        permanent: true
   websecure:
     address: ":443"
   ping:
