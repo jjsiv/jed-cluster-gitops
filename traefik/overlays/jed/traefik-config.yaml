@@ -23,7 +23,7 @@ accessLog:
   format: json
 serversTransport:
   rootCAs:
-  - traefik-cacerts
+  - /var/traefik/jed-ca.crt
 entryPoints:
   web:
     address: ":80"

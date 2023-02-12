@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../bases
+- ingress.yaml
+
+
+namespace: longhorn-storage
+
+  
+images:
+- name: longhornio/longhorn-manager
+  newTag: v1.4.0
+
+- name: longhornio/longhorn-ui
+  newTag: v1.4.0
+

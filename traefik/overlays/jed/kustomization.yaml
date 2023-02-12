@@ -3,9 +3,7 @@ kind: Kustomization
 
 resources:
 - ../../bases/
-- traefik-dashboard-ingressroute-http.yaml
 - traefik-dashboard-ingressroute-https.yaml
-- traefik-middleware-redirect.yaml
 - secret-traefik-ingress.yaml
 - secret-traefik-cacerts.yaml
 
