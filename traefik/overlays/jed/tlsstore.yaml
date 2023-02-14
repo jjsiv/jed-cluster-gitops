@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   certificates:
-#    - secretName: default-ingress-tls
+    - secretName: default-ingress-tls
     - secretName: test-ingress-tls
   defaultCertificate:
     secretName: test-ingress-tls
