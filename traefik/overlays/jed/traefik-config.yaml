@@ -15,7 +15,7 @@ api:
 ping:
   entryPoint: ping
 log:
-  level: info
+  level: debug
   filePath: /dev/stdout
   format: json
 accessLog:
