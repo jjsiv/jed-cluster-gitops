@@ -1,0 +1,8 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: TLSStore
+metadata:
+  name: default
+  namespace: default
+spec:
+  certificates:
+    - secretName: default-ingress-tls

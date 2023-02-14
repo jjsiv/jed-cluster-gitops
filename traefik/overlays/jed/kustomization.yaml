@@ -6,6 +6,8 @@ resources:
 - traefik-dashboard-ingressroute-https.yaml
 - secret-traefik-ingress.yaml
 - secret-traefik-cacerts.yaml
+- secret-default-tls.yaml
+- tlsstore.yaml
 
 namespace: traefik
 
