@@ -6,3 +6,6 @@ metadata:
 spec:
   certificates:
     - secretName: default-ingress-tls
+    - secretName: test-ingress-tls
+  defaultCertificate:
+    secretName: default-ingress-tls
