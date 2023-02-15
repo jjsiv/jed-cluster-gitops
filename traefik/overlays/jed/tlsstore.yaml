@@ -7,5 +7,6 @@ spec:
   certificates:
     - secretName: default-ingress-tls
     - secretName: test-ingress-tls
+    - secretName: test-jed-net
   defaultCertificate:
     secretName: test-ingress-tls
