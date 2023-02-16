@@ -19,4 +19,3 @@ spec:
   podMetricsEndpoints:
     - port: http
       honorLabels: true
-      justbreakingstuff: yes
