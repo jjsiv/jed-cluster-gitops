@@ -49,15 +49,4 @@ spec:
             requests:
               cpu: 250m
               memory: 750Mi
-          volumeMounts:
-            - mountPath: /var/lib/grafana
-              name: grafana-pv
-  volumeClaimTemplates:
-  - metadata:
-      name: grafana-pv
-    spec:
-      accessModes: ["ReadWriteMany"]
-      storageClassName: "longhorn-xfs"
-      resources:
-        requests:
-          storage: 10Gi
+
