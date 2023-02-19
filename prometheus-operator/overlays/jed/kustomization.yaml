@@ -6,6 +6,7 @@ resources:
 
 components:
 - ../../components/webhook
+- ../../prometheus-system
 
 patches:
 - path: patch-webhooks.yaml

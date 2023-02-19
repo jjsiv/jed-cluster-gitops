@@ -1,0 +1,42 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus-system
+  namespace: prometheus
+  labels:
+    prometheus.io/name: "system"
+spec:
+  serviceAccountName: prometheus
+  podMonitorSelector:
+    matchLabels:
+      jed.net/monitor-type: system
+  podMonitorNamespaceSelector:
+    matchLabels:
+      jed.net/namespace-type: system
+  serviceMonitorSelector:
+    matchLabels:
+      jed.net/monitor-type: system
+  serviceMonitorNamespaceSelector:
+    matchLabels:
+      jed.net/namespace-type: system
+  resources:
+    requests:
+      memory: 400Mi
+  enableAdminAPI: false
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-system
+  namespace: prometheus
+spec:
+  type: ClusterIP
+  ports:
+  - name: web
+    port: 9090
+    protocol: TCP
+    targetPort: web
+  selector:
+    prometheus.io/name: "system"
