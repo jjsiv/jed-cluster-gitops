@@ -14,6 +14,11 @@ spec:
               name: grafana-pv
             - mountPath: /etc/grafana
               name: grafana-config
+      volumes:
+      - name: grafana-config
+        configMap:
+          defaultMode: 420
+          name: grafana-config
   volumeClaimTemplates:
   - metadata:
       name: grafana-pv
@@ -23,8 +28,3 @@ spec:
       resources:
         requests:
           storage: 10Gi
-      volumes:
-      - name: grafana-config
-        configMap:
-          defaultMode: 420
-          name: grafana-config
