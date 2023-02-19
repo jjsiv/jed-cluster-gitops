@@ -19,3 +19,24 @@ configMapGenerator:
     namespace: grafana
     files:
     - config/grafana.ini
+
+  - name: provider-cilium
+    namespace: grafana
+    files:
+    - config/provider-cilium.yaml
+  
+  - name: datasource-prometheus
+    namespace: grafana
+    files:
+    - config/datasource-prometheus.yaml
+  
+  - name: grafana-cilium-dashboard
+    namespace: grafana
+    files:
+    - dashboards/cilium-dashboard.json
+  
+  - name: grafana-hubble-dashboard
+    namespace: grafana
+    files:
+    - dashboards/hubble-dashboard.json
+    

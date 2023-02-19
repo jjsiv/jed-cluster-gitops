@@ -9,16 +9,54 @@ spec:
     spec:
       containers:
         - name: grafana
+          env:
+          - name: GF_PATHS_CONFIG
+            value: /etc/grafana/grafana.ini
+          - name: GF_PATHS_PROVISIONING
+            value: /etc/grafana/provisioning
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: grafana-pv
             - mountPath: /etc/grafana
               name: grafana-config
+            - mountPath: /etc/grafana/provisioning
+              name: datasource-prometheus
+            - mountPath: /etc/grafana/provisioning/dashboards
+              name: provider-cilium
+            - mountPath: /etc/grafana/dashboards/cilium-dashboard
+              name: cilium-dashboard
+              readOnly: true
+            - mountPath: /etc/grafana/dashboards/hubble-dashboard
+              name: hubble-dashboard
+              readOnly: true
+          #  - mountPath: /etc/grafana/dashboards/hubble-l7-http-metrics-by-workload
+          #    name: hubble-l7-http-metrics-by-workload
+          #    readOnly: true
       volumes:
       - name: grafana-config
         configMap:
           defaultMode: 420
           name: grafana-config
+      - name: datasource-prometheus
+        configMap:
+          defaultMode: 420
+          name: datasource-prometheus
+      - name: provider-cilium
+        configMap:
+          defaultMode: 420
+          name: provider-cilium
+      - name: cilium-dashboard
+        configMap:
+          defaultMode: 420
+          name: grafana-cilium-dashboard
+      - name: hubble-dashboard
+        configMap:
+          defaultMode: 420
+          name: grafana-hubble-dashboard
+      #- name: hubble-l7-http-metrics-by-workload
+      #  configMap:
+      #    defaultMode: 420
+      #    name: hubble-l7-http-metrics-by-workload
   volumeClaimTemplates:
   - metadata:
       name: grafana-pv
