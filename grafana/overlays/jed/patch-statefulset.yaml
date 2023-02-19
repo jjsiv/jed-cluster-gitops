@@ -12,6 +12,8 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/grafana
               name: grafana-pv
+            - mountPath: /etc/grafana
+              name: grafana-config
   volumeClaimTemplates:
   - metadata:
       name: grafana-pv
@@ -20,4 +22,9 @@ spec:
       storageClassName: "longhorn-xfs"
       resources:
         requests:
-          storage: 10Gi              
+          storage: 10Gi
+  volumes:
+  - name: grafana-config
+    configMap:
+      defaultMode: 420
+      name: grafana-config

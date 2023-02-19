@@ -14,3 +14,8 @@ images:
 - name: grafana/grafana
   newTag: 9.3.6
 
+configMapGenerator:
+  - name: grafana-config
+    namespace: grafana
+    files:
+    - config/grafana.ini
