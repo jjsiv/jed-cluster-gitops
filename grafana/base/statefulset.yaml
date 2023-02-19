@@ -56,8 +56,8 @@ spec:
   - metadata:
       name: grafana-pv
     spec:
-      accessModes: ["ReadWriteOnce"]
-      storageClassName: "nfs-default"
+      accessModes: ["ReadWriteMany"]
+      storageClassName: "longhorn-xfs"
       resources:
         requests:
           storage: 10Gi
