@@ -4,11 +4,13 @@ providers:
     ingressClass: "traefik"
     allowEmptyServices: true
     throttleDuration: 10s
+    allowExternalNameServices: true
   kubernetesIngress:
     namespaces: {}
     ingressClass: "traefik"
     allowEmptyServices: true
     throttleDuration: 10s
+    allowExternalNameServices: true
 api:
   dashboard: true
   insecure: false
